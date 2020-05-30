@@ -1,0 +1,20 @@
+div {
+  margin: 1%;
+}
+
+mat-table {
+  margin-top: 1%;
+}
+
+.button-list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.op-button {
+  margin: 1%;
+}
+
+mat-icon {
+  cursor: pointer;
+}

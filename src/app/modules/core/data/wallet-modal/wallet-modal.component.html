@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>{{modalData.title}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="record">
+    <mat-form-field class="full-width">
+      <mat-label
+        >Describe about the record with minimum 5 characters*</mat-label
+      >
+      <input matInput formControlName="desc" />
+    </mat-form-field>
+    <mat-label>Type of record*</mat-label>
+    <mat-select formControlName="type">
+      <mat-option *ngFor="let type of recordTypes" [value]="type.value">
+        {{type.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-form-field>
+      <mat-label>Pick a date*</mat-label>
+      <input
+        matInput
+        [min]="minDate"
+        [max]="maxDate"
+        [matDatepicker]="picker"
+        formControlName="date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Enter a numberical amount greater than 1*</mat-label>
+      <input matInput formControlName="amount" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  <button
+    mat-raised-button
+    colort="primary"
+    (click)="onSubmit()"
+    [disabled]="record.invalid"
+    cdkFocusInitial
+  >
+    Submit
+  </button>
+</div>
